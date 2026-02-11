@@ -250,11 +250,11 @@ img {
     margin-top: 2px;
 }
 /* =========================================
-   MOBILE NAV FIX (does not affect desktop)
+   MOBILE NAVBAR FIX (keeps desktop unchanged)
    ========================================= */
 @media (max-width: 768px) {
 
-  /* Give navbar breathing room */
+  /* Make the navbar row tighter */
   .nav-container{
     display: flex;
     align-items: center;
@@ -262,72 +262,108 @@ img {
     gap: 10px;
   }
 
-  /* Make logo smaller on phone */
-  .logo-image{
-    width: 56px;
-    height: 56px;
+  /* Logo block: shrink + prevent it from stealing the whole row */
+  .logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 60%;
+    flex: 1;
+    min-width: 0;
   }
 
-  /* Keep logo + text from breaking weird */
+  /* Smaller logo image */
+  .logo-image{
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+
+  /* Compress the logo text on phone */
   .logo-text-wrapper{
-    line-height: 1.05;
+    min-width: 0;
   }
 
   .logo-main{
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.5px;
   }
 
   .logo-sub{
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 2px;
+    margin-top: 2px;
   }
 
   .logo-tagline{
-    font-size: 10px;
+    font-size: 9px;
+    margin-top: 3px;
   }
 
-  /* Hide the phone button on very small screens (optional but looks MUCH cleaner) */
+  /* Right side buttons */
+  .nav-cta{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  /* Phone button: keep it compact (instead of wrapping) */
   .phone-btn{
-    display: none;
+    padding: 8px 10px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .phone-btn svg{
+    width: 16px;
+    height: 16px;
   }
 
-  /* Make request a ride button smaller so it fits */
+  /* Request button: smaller so it fits */
   .nav-cta .btn{
-    padding: 10px 14px;
-    font-size: 14px;
-    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
+/* =========================================
+   MOBILE NAV CLEAN VERSION
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* Hide phone button completely */
+  .phone-btn {
+    display: none !important;
+  }
+
+  /* Make Request button smaller */
+  .nav-cta .btn {
+    padding: 8px 14px;
+    font-size: 13px;
+    border-radius: 8px;
     white-space: nowrap;
   }
 
-  /* Hamburger stays visible */
-  .nav-toggle{
-    display: flex;
+  /* Slightly shrink logo */
+  .logo-image {
+    width: 50px;
+    height: 50px;
   }
 
-  /* Mobile menu dropdown */
-  .nav-menu{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 14px 16px;
-    display: none;
-    flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border-top: 1px solid rgba(0,0,0,0.06);
-    z-index: 9999;
+  .logo-main {
+    font-size: 16px;
   }
 
-  .nav-menu.active{
-    display: flex;
+  .logo-sub {
+    font-size: 9px;
   }
 
-  .nav-menu .nav-link{
-    padding: 10px 0;
+  .logo-tagline {
+    font-size: 9px;
   }
 }
+
 
 
 /* TAGLINE */
