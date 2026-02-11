@@ -1,0 +1,55 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#2B5797" opacity="0.1"/>
+  
+  <!-- Outer Hexagon Shape (Represents Security/Trust) -->
+  <path d="M100 20 L160 55 L160 125 L100 160 L40 125 L40 55 Z" 
+        stroke="#2B5797" 
+        stroke-width="4" 
+        fill="none" 
+        stroke-linejoin="round"/>
+  
+  <!-- Inner Path/Road Symbol -->
+  <g transform="translate(100, 100)">
+    <!-- Road lanes -->
+    <path d="M-35 -30 Q-20 -10, -10 10 T 10 30 T 30 40" 
+          stroke="#28A745" 
+          stroke-width="12" 
+          fill="none" 
+          stroke-linecap="round"/>
+    <path d="M-35 -30 Q-20 -10, -10 10 T 10 30 T 30 40" 
+          stroke="#FFFFFF" 
+          stroke-width="2" 
+          fill="none" 
+          stroke-linecap="round"
+          stroke-dasharray="8 6"/>
+  </g>
+  
+  <!-- Medical Cross Element (subtle) -->
+  <g transform="translate(100, 60)">
+    <rect x="-3" y="-12" width="6" height="24" fill="#28A745" rx="2"/>
+    <rect x="-12" y="-3" width="24" height="6" fill="#28A745" rx="2"/>
+  </g>
+  
+  <!-- Care/Heart Symbol at bottom -->
+  <g transform="translate(100, 135)">
+    <path d="M0 8 C-10 -2, -20 -2, -20 8 C-20 18, 0 28, 0 28 C0 28, 20 18, 20 8 C20 -2, 10 -2, 0 8 Z" 
+          fill="#2B5797" 
+          opacity="0.8"/>
+  </g>
+  
+  <!-- Accent circles (representing people/care) -->
+  <circle cx="70" cy="100" r="4" fill="#28A745"/>
+  <circle cx="130" cy="100" r="4" fill="#28A745"/>
+  
+  <!-- Text Element - Company Name -->
+  <text x="100" y="185" 
+        font-family="'Plus Jakarta Sans', sans-serif" 
+        font-size="16" 
+        font-weight="700" 
+        fill="#2B5797" 
+        text-anchor="middle"
+        letter-spacing="1">
+    PRIME RIDE
+  </text>
+</svg>

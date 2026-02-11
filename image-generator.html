@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Placeholder Generator - Prime Ride Transit</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #2B5797;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .instructions {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .instructions h2 {
+            color: #28A745;
+            margin-top: 0;
+        }
+        .instructions ol {
+            line-height: 1.8;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background: #2B5797;
+            color: white;
+            padding: 16px;
+            font-weight: 600;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        canvas {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        button {
+            background: #28A745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #229239;
+        }
+        .info {
+            font-size: 13px;
+            color: #666;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+        .warning {
+            background: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 16px;
+            margin: 24px 0;
+            border-radius: 4px;
+        }
+        .warning strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Image Placeholder Generator</h1>
+    <p class="subtitle">Prime Ride Transit LLC - Temporary placeholders until you add real photos</p>
+
+    <div class="instructions">
+        <h2>📋 How to Use These Placeholders:</h2>
+        <ol>
+            <li><strong>Click "Download"</strong> on each image below</li>
+            <li><strong>Save the files</strong> with the exact names shown (hero-image.jpg, etc.)</li>
+            <li><strong>Place them</strong> in the same folder as your index.html file</li>
+            <li><strong>Open your website</strong> - the images will display automatically</li>
+            <li><strong>Replace later</strong> with professional photos when ready</li>
+        </ol>
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ Important:</strong> These are temporary placeholder graphics. For the best professional appearance, replace them with actual photographs of your vehicles, team, and services as soon as possible. See README.md for image sourcing tips.
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">Hero Image</div>
+            <div class="card-body">
+                <canvas id="heroCanvas" width="1920" height="1080"></canvas>
+                <button onclick="downloadImage('heroCanvas', 'hero-image.jpg')">Download hero-image.jpg</button>
+                <div class="info">
+                    <strong>Size:</strong> 1920 x 1080 pixels<br>
+                    <strong>Purpose:</strong> Main hero background<br>
+                    <strong>Replace with:</strong> Professional photo of caregiver helping patient into medical van
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Ambulatory Service</div>
+            <div class="card-body">
+                <canvas id="ambulatoryCanvas" width="800" height="600"></canvas>
+                <button onclick="downloadImage('ambulatoryCanvas', 'ambulatory-service.jpg')">Download ambulatory-service.jpg</button>
+                <div class="info">
+                    <strong>Size:</strong> 800 x 600 pixels<br>
+                    <strong>Purpose:</strong> Ambulatory service card<br>
+                    <strong>Replace with:</strong> Clean sedan with professional driver
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Wheelchair Service</div>
+            <div class="card-body">
+                <canvas id="wheelchairCanvas" width="800" height="600"></canvas>
+                <button onclick="downloadImage('wheelchairCanvas', 'wheelchair-service.jpg')">Download wheelchair-service.jpg</button>
+                <div class="info">
+                    <strong>Size:</strong> 800 x 600 pixels<br>
+                    <strong>Purpose:</strong> Wheelchair service card<br>
+                    <strong>Replace with:</strong> ADA-compliant van with wheelchair lift
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">About Us</div>
+            <div class="card-body">
+                <canvas id="aboutCanvas" width="600" height="800"></canvas>
+                <button onclick="downloadImage('aboutCanvas', 'about-image.jpg')">Download about-image.jpg</button>
+                <div class="info">
+                    <strong>Size:</strong> 600 x 800 pixels<br>
+                    <strong>Purpose:</strong> About section image<br>
+                    <strong>Replace with:</strong> Team photo or compassionate patient interaction
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h2>🎨 Need Professional Photos?</h2>
+        <p><strong>Free Stock Photo Sites:</strong></p>
+        <ul>
+            <li><strong>Unsplash.com</strong> - Search: "medical transport", "senior care"</li>
+            <li><strong>Pexels.com</strong> - Search: "healthcare worker", "elderly care"</li>
+            <li><strong>Pixabay.com</strong> - Search: "caregiver", "wheelchair accessible"</li>
+        </ul>
+        <p><strong>AI Image Generation (Recommended):</strong></p>
+        <ul>
+            <li><strong>Midjourney</strong> - Highest quality, paid</li>
+            <li><strong>Leonardo.ai</strong> - Free tier available</li>
+            <li><strong>DALL-E 3</strong> - Via ChatGPT Plus</li>
+        </ul>
+        <p>Check the README.md file for detailed AI prompts and image requirements!</p>
+    </div>
+
+    <script>
+        // Hero Image - Medical Transportation Scene
+        function createHeroImage() {
+            const canvas = document.getElementById('heroCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#2B5797');
+            gradient.addColorStop(0.5, '#4A90E2');
+            gradient.addColorStop(1, '#28A745');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add overlay pattern
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+            for (let i = 0; i < 20; i++) {
+                ctx.beginPath();
+                ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 
+                       Math.random() * 100 + 50, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            // Central icon - Medical Van
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fillRect(canvas.width/2 - 200, canvas.height/2 - 100, 400, 200);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.fillRect(canvas.width/2 - 150, canvas.height/2 - 150, 300, 50);
+            
+            // Medical cross
+            ctx.fillStyle = '#28A745';
+            ctx.fillRect(canvas.width/2 - 30, canvas.height/2 - 60, 60, 120);
+            ctx.fillRect(canvas.width/2 - 60, canvas.height/2 - 30, 120, 60);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 72px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('MEDICAL TRANSPORTATION', canvas.width/2, 180);
+            
+            ctx.font = '48px Arial';
+            ctx.fillText('Professional • Reliable • Compassionate', canvas.width/2, canvas.height - 100);
+        }
+        
+        // Ambulatory Service
+        function createAmbulatoryImage() {
+            const canvas = document.getElementById('ambulatoryCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Blue gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#4A90E2');
+            gradient.addColorStop(1, '#2B5797');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Car shape (simplified sedan)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fillRect(150, 250, 500, 150);
+            ctx.fillRect(250, 180, 300, 70);
+            
+            // Wheels
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.arc(250, 400, 40, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(550, 400, 40, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Person icon (walking)
+            ctx.fillStyle = '#28A745';
+            ctx.beginPath();
+            ctx.arc(100, 280, 30, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillRect(85, 310, 30, 80);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('AMBULATORY SERVICE', canvas.width/2, 80);
+            
+            ctx.font = '28px Arial';
+            ctx.fillText('Walk-in Transportation', canvas.width/2, 520);
+        }
+        
+        // Wheelchair Service
+        function createWheelchairImage() {
+            const canvas = document.getElementById('wheelchairCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Green gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#28A745');
+            gradient.addColorStop(1, '#1e7e34');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Van shape
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fillRect(100, 200, 600, 200);
+            ctx.fillRect(150, 130, 500, 70);
+            
+            // Wheelchair ramp
+            ctx.fillStyle = 'rgba(200, 200, 200, 0.9)';
+            ctx.beginPath();
+            ctx.moveTo(100, 400);
+            ctx.lineTo(50, 450);
+            ctx.lineTo(150, 450);
+            ctx.lineTo(100, 400);
+            ctx.fill();
+            
+            // Wheelchair icon
+            ctx.strokeStyle = '#2B5797';
+            ctx.lineWidth = 8;
+            ctx.beginPath();
+            ctx.arc(500, 320, 50, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(500, 380, 25, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            // Wheels
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.arc(200, 400, 40, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(600, 400, 40, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('WHEELCHAIR ACCESSIBLE', canvas.width/2, 80);
+            
+            ctx.font = '28px Arial';
+            ctx.fillText('ADA Compliant Vehicles', canvas.width/2, 520);
+        }
+        
+        // About Image
+        function createAboutImage() {
+            const canvas = document.getElementById('aboutCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#2B5797');
+            gradient.addColorStop(1, '#28A745');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Heart icon (care symbol)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.beginPath();
+            ctx.moveTo(300, 350);
+            ctx.bezierCurveTo(300, 300, 250, 260, 200, 260);
+            ctx.bezierCurveTo(150, 260, 120, 290, 120, 330);
+            ctx.bezierCurveTo(120, 360, 140, 390, 300, 500);
+            ctx.bezierCurveTo(460, 390, 480, 360, 480, 330);
+            ctx.bezierCurveTo(480, 290, 450, 260, 400, 260);
+            ctx.bezierCurveTo(350, 260, 300, 300, 300, 350);
+            ctx.fill();
+            
+            // People icons (team)
+            for (let i = 0; i < 3; i++) {
+                const x = 150 + i * 150;
+                ctx.fillStyle = '#4A90E2';
+                ctx.beginPath();
+                ctx.arc(x, 600, 40, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillRect(x - 30, 640, 60, 100);
+            }
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 42px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('OUR MISSION', canvas.width/2, 80);
+            
+            ctx.font = '24px Arial';
+            ctx.fillText('Compassionate Care', canvas.width/2, 140);
+            ctx.fillText('Professional Service', canvas.width/2, 180);
+        }
+        
+        // Download function
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/jpeg', 0.95);
+            link.click();
+        }
+        
+        // Initialize all canvases
+        window.onload = function() {
+            createHeroImage();
+            createAmbulatoryImage();
+            createWheelchairImage();
+            createAboutImage();
+        };
+    </script>
+</body>
+</html>
