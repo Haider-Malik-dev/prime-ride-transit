@@ -249,12 +249,86 @@ img {
     font-weight: 500;
     margin-top: 2px;
 }
+/* =========================================
+   MOBILE NAV FIX (does not affect desktop)
+   ========================================= */
 @media (max-width: 768px) {
-    .logo-sub,
-    .logo-tagline {
-        display: none;
-    }
+
+  /* Give navbar breathing room */
+  .nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  /* Make logo smaller on phone */
+  .logo-image{
+    width: 56px;
+    height: 56px;
+  }
+
+  /* Keep logo + text from breaking weird */
+  .logo-text-wrapper{
+    line-height: 1.05;
+  }
+
+  .logo-main{
+    font-size: 18px;
+  }
+
+  .logo-sub{
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .logo-tagline{
+    font-size: 10px;
+  }
+
+  /* Hide the phone button on very small screens (optional but looks MUCH cleaner) */
+  .phone-btn{
+    display: none;
+  }
+
+  /* Make request a ride button smaller so it fits */
+  .nav-cta .btn{
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  /* Hamburger stays visible */
+  .nav-toggle{
+    display: flex;
+  }
+
+  /* Mobile menu dropdown */
+  .nav-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 14px 16px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    z-index: 9999;
+  }
+
+  .nav-menu.active{
+    display: flex;
+  }
+
+  .nav-menu .nav-link{
+    padding: 10px 0;
+  }
 }
+
 
 /* TAGLINE */
 .logo-tagline {
